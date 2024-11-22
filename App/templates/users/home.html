@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>HETAL HEALTH</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/favicons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/img/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicons/favicon-16x16.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicons/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'assets/img/favicons/manifest.json' %}">
+    <meta name="msapplication-TileImage" content="{% static 'assets/img/favicons/mstile-150x150.png' %}">
+    <meta name="theme-color" content="#ffffff"> -->
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="{% static 'assets/css/theme.css' %}" rel="stylesheet" />
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container"><a class="navbar-brand" href="index.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXkuO1Q02z7XljXII2cs45W_qHqC18uqFwlQ&s" width="118" alt="logo" /> welcome to
+           {{ user.username.title| default:'guest'}}</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+            {% if user.is_authenticated %}
+              
+              <li class="nav-item px-2"><a class="nav-link" href="{% url 'users-profile' %}">Profile</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="{% url 'profile_list' %}">profile_list </a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="{% url 'ML_DB' %}">ML_DB </a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="{% url 'Database' %}">DL_DB </a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="{% url 'Basic' %}">Report </a></li>
+              <li class="nav-item"><a href="{% url 'Metrics' %}" class="nav-link">Metrics_report</a></li>
+
+              <li class="nav-item px-2"><a class="nav-link" href="{% url 'logout_view' %}">Logout</a></li>
+              
+                        
+            
+            {% endif %}
+          
+          </div>
+        </div>
+      </nav>
+      {% if user.is_authenticated %}
+        <section class="py-xxl-10 pb-0" id="home">
+            <div class="bg-holder bg-size" style="background-position:top center;background-size:cover;" ><img class="pt-7 pt-md-0 w-100" src="{% static 'assets/img/gallery/hero-bg.png' %}" alt="hero-header" />
+            </div>
+            <!--/.bg-holder-->
+
+            <div class="container">
+            <div class="row min-vh-xl-100 min-vh-xxl-25">
+                <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="{%static 'assets/video/GIF.gif' %}" alt="hero-header" /></div>
+                <div class="col-md-75 col-xl-6 col-xxl-5 text-md-start text-center py-6">
+                <h1 class="fw-light font-base fs-6 fs-xxl-7">Ensuring <strong>Fetal Health</strong><br />for&nbsp;your&nbsp;<strong>Healthy Future.</strong></h1>
+                <p class="fs-1 mb-5">Predicting fetal health outcomes involves a combination of medical expertise and technological advancements <br />person. You will be treated by caring specialist doctors. </p>
+                <a class="btn btn-lg btn-primary rounded-pill" href="{% url 'Deploy_9' %}" role="button">Model</a>
+                <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{% url 'Deploy_8' %}" ole="button">DL_Model</a>
+                </div>
+            </div>
+            </div>
+        </section>
+        {% else %}
+        <section class="py-xxl-10 pb-0" id="home">
+            <div class="bg-holder bg-size" style="background-position:top center;background-size:cover;" ><img class="pt-7 pt-md-0 w-100" src="{% static 'assets/img/gallery/hero-bg.png' %}" alt="hero-header" />
+            </div>
+            <!--/.bg-holder-->
+
+            <div class="container">
+            <div class="row min-vh-xl-100 min-vh-xxl-25">
+                <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="https://cdni.iconscout.com/illustration/premium/thumb/birth-process-illustration-download-in-svg-png-gif-file-formats--development-of-the-fetus-foetus-cycle-pregnancy-stags-medical-and-healthcare-pack-people-illustrations-3773955.png" alt="hero-header" /></div>
+                <div class="col-md-75 col-xl-6 col-xxl-5 text-md-start text-center py-6">
+                  
+                        <h2 class="fw-bold">Welcome to Our Application!</h2>
+                        <p class="fs-5 mb-4">To get started, please <strong>register</strong> or <strong>log in</strong> to access personalized services and expert guidance from our caring specialist doctors.</p>
+                        <a href="/register" class="btn btn-primary btn-lg me-2">Register</a>
+                        <a href="{% url 'login' %}" class="btn btn-secondary btn-lg">Login</a>
+                        
+                
+                </div>
+            </div>
+            </div>
+        </section>
+        {% endif %}
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        {% if user.is_authenticated %}
+        
+      <section class="py-5" id="departments">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3">
+              <div class="bg-holder bg-size" style="background-position:top center;background-size:contain;"><img class="pt-7 pt-md-0 w-100" src="{%static 'assets/img/gallery/bg-departments.png' %}" alt="hero-header" />
+              </div>
+              <!--/.bg-holder-->
+
+              <h1 class="text-center">Fetal_health types</h1>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-0">
+
+        <div class="container">
+          <div class="row py-5 align-items-center justify-content-center justify-content-lg-evenly">
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT42SZfJeW5Q6kzKOdCcl-0vsoUFBOjRDY3EQ&s" alt="..." /><img class="mb-3 deparment-icon-hover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT42SZfJeW5Q6kzKOdCcl-0vsoUFBOjRDY3EQ&s" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">Normal </p>
+                  </a></div>
+              </div>
+            </div>
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="data:image/jpeg;base64,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" alt="..." /><img class="mb-3 deparment-icon-hover" src="data:image/jpeg;base64,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" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">Suspicious </p>
+                  </a></div>
+              </div>
+            </div>
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLanuntTFNwk07h3pl8LthVybwQ6WYh5Ojmw&s" alt="..." /><img class="mb-3 deparment-icon-hover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLanuntTFNwk07h3pl8LthVybwQ6WYh5Ojmw&s" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">Pathological </p>
+                  </a></div>
+              </div>
+            </div>
+           
+            
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <section class="bg-secondary">
+        <div class="bg-holder" style="background-image:url(static/assets/img/gallery/bg-eye-care.png);background-position:center;background-size:contain;">
+        </div>
+        <!--/.bg-holder-->
+      
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-5 col-xxl-6">
+              <img class="img-fluid" src="https://media.istockphoto.com/id/1611642843/vector/medical-ultrasound-examination-pregnancy-vector-illustration-cartoon-young-pregnant-woman-on.jpg?s=1024x1024&w=is&k=20&c=uTc4S4s4UpQc5RjgkpyY8fSo0vEV1TyYR-HvRQQ8WRg=" alt="..." / style="height: 850PX;">
+            </div>
+            <div class="col-md-7 col-xxl-6 text-center text-md-start">
+              <h2 class="fw-bold text-light mb-4 mt-4 mt-lg-0">Fetal Health Classification<br class="d-none d-sm-block" /></h2>
+              <p class="text-light">
+                Cardiotocography (CTG) is a valuable technique used to monitor the uterine contractions and fetal heart rate during pregnancy and labor. It involves two key signals: Continuous Fetal Heart Rate (FHR) monitoring and Uterine Activity (UC). This project utilizes both Machine Learning (ML) and Deep Learning (DL) methods for fetal health classification to identify the state of the fetus as Normal, Suspicious, or Pathological.
+              </p>
+              <h4 class="fw-bold text-light">Methods Used</h4>
+              <p class="text-light">
+                <strong>Deep Learning:</strong> This project applies DL-based techniques to process large amounts of CTG data, using Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs) for feature extraction and time-series analysis. DL methods can handle both standard and non-standard patterns in the data, making them suitable for complex and diverse cases.
+              </p>
+              <p class="text-light">
+                <strong>Machine Learning:</strong> For simpler classification, ML techniques such as Random Forest, Support Vector Machine (SVM), and k-Nearest Neighbors (k-NN) are used to classify the CTG data into three categories: Normal, Suspicious, and Pathological. These methods are effective for standard cases and are less computationally intensive than DL.
+              </p>
+              <h4 class="fw-bold text-light">Advantages and Benefits</h4>
+              <ul class="text-light">
+                <li><strong>Improved Accuracy:</strong> Using a combination of ML and DL techniques allows for better detection of subtle abnormalities in fetal health, leading to more accurate predictions.</li>
+                <li><strong>Handling Complex Data:</strong> DL techniques can process large volumes of CTG data, capturing intricate patterns that traditional methods may miss.</li>
+                <li><strong>Real-Time Monitoring:</strong> Both ML and DL methods enable real-time analysis of fetal health, allowing for timely intervention in critical cases.</li>
+                <li><strong>Scalability:</strong> The methods used in this project can be scaled for large datasets, accommodating different hospitals and healthcare settings.</li>
+              </ul>
+              <div class="py-3">
+                <a class="btn btn-lg btn-light rounded-pill" href="https://en.wikipedia.org/wiki/Prenatal_testing" role="button">Learn more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+
+     
+
+
+      
+      {% endif %}
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="{% static 'vendors/@popperjs/popper.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/is/is.min.js' %}"></script>
+    <script src="{% static 'https://scripts.sirv.com/sirvjs/v3/sirv.js' %}"></script>
+    <script src="{% static 'https://polyfill.io/v3/polyfill.min.js?features=window.scroll' %}"></script>
+    <script src="{% static 'vendors/fontawesome/all.min.js' %}"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100&amp;display=swap" rel="stylesheet">
+  </body>
+
+</html>

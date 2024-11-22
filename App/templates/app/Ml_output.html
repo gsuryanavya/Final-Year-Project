@@ -1,0 +1,243 @@
+{% extends "users/base.html" %}
+{% block title %}Profile Page{% endblock title %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetal Health Monitoring</title>
+    <style>
+        /* Embedded CSS for simplicity */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+
+        header {
+            background-color: #006400;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid #004d00;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        main {
+            padding: 30px 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            background-color: #ffffff;
+            margin-bottom: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+
+        section:hover {
+            transform: scale(1.02);
+        }
+
+        section h2 {
+            font-size: 28px;
+            color: #006400;
+            border-bottom: 2px solid #006400;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        section img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #006400;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #006400;
+            color: white;
+        }
+
+        footer {
+            background-color: #006400;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Fetal Health Monitoring</h1>
+    </header>
+     <h2 style="color: rgb(124, 173, 234);"><center>Bagging algorithm is the best</center></h2>
+    <main>
+        <div class="container">
+            {% if predict == 'Normal' %}
+            <section id="normal">
+                <h2>Normal Fetal Condition</h2>
+                <img src="https://media.gettyimages.com/id/1222617493/photo/young-woman-having-4d-ultrasound-scan.jpg?s=612x612&w=gi&k=20&c=IVcpplYt_CKLYh0e_KxbNNTnt2ZYtkztQzmI_nxeF-I=" alt="Normal Fetus Image">
+                <p>The fetal condition is considered normal when there are no signs of distress or abnormalities in the monitoring results.</p>
+                <h3>Symptoms</h3>
+                <table>
+                    <tr>
+                        <th>Symptoms</th>
+                    </tr>
+                    <tr>
+                        <td>Stable heart rate</td>
+                    </tr>
+                    <tr>
+                        <td>Regular fetal movements</td>
+                    </tr>
+                    <tr>
+                        <td>Normal amniotic fluid levels</td>
+                    </tr>
+                </table>
+                <h3>Prevention & Precautions</h3>
+                <p>Maintain a healthy lifestyle, balanced diet, and regular prenatal checkups.</p>
+                <h3>Recommended Physical Activities</h3>
+                <p>Gentle exercises like walking, swimming, and prenatal yoga.</p>
+                <h3>Diet Recommendations</h3>
+                <table>
+                    <tr>
+                        <th>Fruits</th>
+                        <th>Vegetables</th>
+                        <th>Vitamins</th>
+                    </tr>
+                    <tr>
+                        <td>Apples, Bananas, Oranges</td>
+                        <td>Spinach, Carrots, Broccoli</td>
+                        <td>Folic acid, Vitamin D, Omega-3</td>
+                    </tr>
+                </table>
+                <h3>Baby Activities</h3>
+                <p>Encourage gentle movements and play soothing music to promote relaxation.</p>
+            </section>
+
+            {% elif predict == 'Suspicious' %}
+            <section id="suspicious">
+                <h2>Suspicious Fetal Condition</h2>
+                <img src="https://sdadmin.suburbandiagnostics.com/Uploads/f6ae69e4-5c89-419a-af83-4a1be2653c14.webp" alt="Suspicious Fetus Image">
+                <p>There are some irregularities observed that may need further monitoring or assessment.</p>
+                <h3>Symptoms</h3>
+                <table>
+                    <tr>
+                        <th>Symptoms</th>
+                    </tr>
+                    <tr>
+                        <td>Irregular heart rate</td>
+                    </tr>
+                    <tr>
+                        <td>Reduced fetal movements</td>
+                    </tr>
+                    <tr>
+                        <td>Unusual levels of amniotic fluid</td>
+                    </tr>
+                </table>
+                <h3>Prevention & Precautions</h3>
+                <p>Ensure close monitoring and follow your doctor's advice for additional tests.</p>
+                <h3>Recommended Physical Activities</h3>
+                <p>Low-impact exercises such as stretching and slow walking.</p>
+                <h3>Diet Recommendations</h3>
+                <table>
+                    <tr>
+                        <th>Fruits</th>
+                        <th>Vegetables</th>
+                        <th>Vitamins</th>
+                    </tr>
+                    <tr>
+                        <td>Berries, Pears, Kiwis</td>
+                        <td>Kale, Bell Peppers, Sweet Potatoes</td>
+                        <td>Iron, Calcium, Vitamin B12</td>
+                    </tr>
+                </table>
+                <h3>Potential Effects on Other Conditions</h3>
+                <p>Suspicious results may indicate a risk of conditions like gestational diabetes or preeclampsia.</p>
+                <h3>Baby Activities</h3>
+                <p>Engage in soft touch and gentle movements to stimulate fetal activity.</p>
+            </section>
+
+            {% elif predict == 'Pathological' %}
+            <section id="pathological">
+                <h2>Pathological Fetal Condition</h2>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTGiKUxwoLHsOhk-A1jyH560MEROrk5D8tZQ&s" alt="Pathological Fetus Image">
+                <p>This indicates a high-risk condition that requires immediate medical intervention.</p>
+                <h3>Symptoms</h3>
+                <table>
+                    <tr>
+                        <th>Symptoms</th>
+                    </tr>
+                    <tr>
+                        <td>Severe heart rate irregularities</td>
+                    </tr>
+                    <tr>
+                        <td>Minimal or absent fetal movements</td>
+                    </tr>
+                    <tr>
+                        <td>Abnormal amniotic fluid levels</td>
+                    </tr>
+                </table>
+                <h3>Prevention & Precautions</h3>
+                <p>Seek emergency care, follow high-risk pregnancy protocols, and ensure frequent monitoring.</p>
+                <h3>Recommended Physical Activities</h3>
+                <p>Only under doctor's supervision; rest is often recommended.</p>
+                <h3>Diet Recommendations</h3>
+                <table>
+                    <tr>
+                        <th>Fruits</th>
+                        <th>Vegetables</th>
+                        <th>Vitamins</th>
+                    </tr>
+                    <tr>
+                        <td>Pomegranate, Avocado, Mango</td>
+                        <td>Beets, Asparagus, Seaweed</td>
+                        <td>Vitamin E, Magnesium, Zinc</td>
+                    </tr>
+                </table>
+                <h3>Potential Effects on Other Conditions</h3>
+                <p>Pathological conditions may affect other organs and could be related to complications like fetal growth restriction or maternal hypertension.</p>
+                <h3>Baby Activities</h3>
+                <p>Minimal stimulation is recommended; prioritize monitoring and medical advice.</p>
+            </section>
+            {% endif %}
+        </div>
+    </main>
+
+   
+</body>
+</html>
+{% endblock %}

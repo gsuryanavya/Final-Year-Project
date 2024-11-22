@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetal_health Model Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #dbb3b3; /* Light red background */
+            font-family: Arial, sans-serif; /* Change font family */
+        }
+
+        .container {
+            max-width: 800px; /* Limit form width */
+            background-color: #ffffff; /* White background for form */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            margin: 50px auto; /* Center align and space from top */
+        }
+
+        h2 {
+            color: #333333; /* Darker text color */
+            text-align: center; /* Center align title */
+            margin-bottom: 30px; /* Space below title */
+        }
+
+        form {
+            margin-top: 20px; /* Space above form */
+        }
+
+        .form-label {
+            font-weight: bold; /* Bold labels */
+        }
+
+        .form-control {
+            border-radius: 5px; /* Rounded input fields */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Blue primary button color */
+            border-color: #007bff; /* Blue border color */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            border-color: #0056b3;
+        }
+
+        .form-text {
+            color: #666666; /* Light gray text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>FETAL HEALTH PREDICTION ANALYSIS USING SUPERVISED LEARNING APPROACHES</h2>
+        <a class="btn btn-primary" href="/" role="button">Home</a>
+        <br><br>
+        <form id="predictionForm" method="post" action="{% url 'Deploy_9' %}">
+            {% csrf_token %}
+            <div class="row g-3">
+                <!-- Existing fields -->
+                
+                <!-- Additional fields -->
+                <div class="col-md-3">
+                    <label for="LBE" class="form-label">LBE</label>
+                    <input type="text" class="form-control" id="LBE" name="LBE" required>
+                    <small class="form-text text-muted">Liquor volume of amniotic fluid.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="LB" class="form-label">LB</label>
+                    <input type="text" class="form-control" id="LB" name="LB" required>
+                    <small class="form-text text-muted">Baseline value.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="AC" class="form-label">AC</label>
+                    <input type="text" class="form-control" id="AC" name="AC" required>
+                    <small class="form-text text-muted">Acceleration.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="FM" class="form-label">FM</label>
+                    <input type="text" class="form-control" id="FM" name="FM" required>
+                    <small class="form-text text-muted">Fetal movement.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="UC" class="form-label">UC</label>
+                    <input type="text" class="form-control" id="UC" name="UC" required>
+                    <small class="form-text text-muted">Uterine contraction.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="ASTV" class="form-label">ASTV</label>
+                    <input type="text" class="form-control" id="ASTV" name="ASTV" required>
+                    <small class="form-text text-muted">Percentage of time with abnormal short term variability.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="MSTV" class="form-label">MSTV</label>
+                    <input type="text" class="form-control" id="MSTV" name="MSTV" required>
+                    <small class="form-text text-muted">Mean value of short term variability.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="ALTV" class="form-label">ALTV</label>
+                    <input type="text" class="form-control" id="ALTV" name="ALTV" required>
+                    <small class="form-text text-muted">Percentage of time with abnormal long term variability.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="MLTV" class="form-label">MLTV</label>
+                    <input type="text" class="form-control" id="MLTV" name="MLTV" required>
+                    <small class="form-text text-muted">Mean value of long term variability.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="DL" class="form-label">DL</label>
+                    <input type="text" class="form-control" id="DL" name="DL" required>
+                    <small class="form-text text-muted">Decelerations per second.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="DS" class="form-label">DS</label>
+                    <input type="text" class="form-control" id="DS" name="DS" required>
+                    <small class="form-text text-muted">Percentage of time with abnormal short term variability.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="DP" class="form-label">DP</label>
+                    <input type="text" class="form-control" id="DP" name="DP" required>
+                    <small class="form-text text-muted">Percentage of time with abnormal long term variability.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="DR" class="form-label">DR</label>
+                    <input type="text" class="form-control" id="DR" name="DR" required>
+                    <small class="form-text text-muted">Percentage of time with abnormal prolongued decelerations.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="Width" class="form-label">Width</label>
+                    <input type="text" class="form-control" id="Width" name="Width" required>
+                    <small class="form-text text-muted">Width of FHR histogram.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="Min" class="form-label">Min</label>
+                    <input type="text" class="form-control" id="Min" name="Min" required>
+                    <small class="form-text text-muted">Minimum of FHR histogram.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="Max" class="form-label">Max</label>
+                    <input type="text" class="form-control" id="Max" name="Max" required>
+                    <small class="form-text text-muted">Maximum of FHR histogram.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="Nmax" class="form-label">Nmax</label>
+                    <input type="text" class="form-control" id="Nmax" name="Nmax" required>
+                    <small class="form-text text-muted">Number of histogram peaks.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="Nzeros" class="form-label">Nzeros</label>
+                    <input type="text" class="form-control" id="Nzeros" name="Nzeros" required>
+                    <small class="form-text text-muted">Number of histogram zeros.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="Mode" class="form-label">Mode</label>
+                    <input type="text" class="form-control" id="Mode" name="Mode" required>
+                    <small class="form-text text-muted">Mode of FHR histogram.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="Mean" class="form-label">Mean</label>
+                    <input type="text" class="form-control" id="Mean" name="Mean" required>
+                    <small class="form-text text-muted">Mean value of FHR histogram.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="Median" class="form-label">Median</label>
+                    <input type="text" class="form-control" id="Median" name="Median" required>
+                    <small class="form-text text-muted">Median value of FHR histogram.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="Variance" class="form-label">Variance</label>
+                    <input type="text" class="form-control" id="Variance" name="Variance" required>
+                    <small class="form-text text-muted">Variance of FHR histogram.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="Tendency" class="form-label">Tendency</label>
+                    <input type="text" class="form-control" id="Tendency" name="Tendency" required>
+                    <small class="form-text text-muted">FHR histogram tendency.</small>
+                </div>
+               
+                <div class="col-md-3">
+                    <label for="SUSP" class="form-label">SUSP</label>
+                    <input type="text" class="form-control" id="SUSP" name="SUSP" required>
+                    <small class="form-text text-muted">Suspect pattern.</small>
+                </div>
+                <div class="col-md-3">
+                    <label for="CLASS" class="form-label">CLASS</label>
+                    <input type="text" class="form-control" id="CLASS" name="CLASS" required>
+                    <small class="form-text text-muted">Class code (1 to 3).</small>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">SUBMIT</button>
+        </form>
+    </div>
+</body>
+</html>
